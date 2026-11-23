@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.log
+*.tmp
+*.part
+*.zip
+*.lnk
+state/
+settings.json
+.DS_Store
+Thumbs.db
+/launcher/runtime.json.bak-*

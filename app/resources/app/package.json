@@ -1,0 +1,9 @@
+{
+  "name": "pvz-feedback-desktop",
+  "productName": "杂交版受伤反馈",
+  "version": "1.0.0-desktop.6",
+  "description": "Desktop shell for the standalone PVZ Hybrid feedback panel",
+  "main": "main.cjs",
+  "private": true,
+  "author": "TianXianbaobao"
+}

@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "version": "1.0.0.6",
+  "dependencies": [
+    {
+      "kind": "electron",
+      "file": "electron-v45.4.1-win32-x64.zip",
+      "url": "https://github.com/electron/electron/releases/download/v45.4.1/electron-v45.4.1-win32-x64.zip",
+      "sha256": "2ba6223afa9121f42831fefe92c434334907540165294fc56697449d12e7cfe9"
+    },
+    {
+      "kind": "python",
+      "file": "python-3.13.17-embed-amd64.zip",
+      "url": "https://www.python.org/ftp/python/3.13.17/python-3.13.17-embed-amd64.zip",
+      "sha256": "9e35319bffedab8b36ad44d8f377cb4f1733bcec257a0b6d04d94f01486ddb38"
+    },
+    {
+      "kind": "wheel",
+      "file": "aiohappyeyeballs-2.7.1-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/71/43/1947f06babed6b3f1d7f38b0c767f52df66bfb2bc10b468c4a7de9eceff2/aiohappyeyeballs-2.7.1-py3-none-any.whl",
+      "sha256": "9243213661e29250eb41368e5daa826fc017156c3b8a11440826b2e3ed376472"
+    },
+    {
+      "kind": "wheel",
+      "file": "aiohttp-3.14.5-cp313-cp313-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/8d/d0/8eca2c65aa467320990d78fb2005f38ed3588944280c39ff9deb6423fef1/aiohttp-3.14.5-cp313-cp313-win_amd64.whl",
+      "sha256": "d05e94cdfe0d15d0206f970722d2554780ce562787b21b218b275447f8751319"
+    },
+    {
+      "kind": "wheel",
+      "file": "aiosignal-1.4.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/fb/76/641ae371508676492379f16e2fa48f4e2c11741bd63c48be4b12a6b09cba/aiosignal-1.4.0-py3-none-any.whl",
+      "sha256": "053243f8b92b990551949e63930a839ff0cf0b0ebbe0597b0f3fb19e1a0fe82e"
+    },
+    {
+      "kind": "wheel",
+      "file": "attrs-26.1.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl",
+      "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+    },
+    {
+      "kind": "wheel",
+      "file": "colorama-0.4.6-py2.py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl",
+      "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"
+    },
+    {
+      "kind": "wheel",
+      "file": "frozenlist-1.8.0-cp313-cp313-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/d8/cf/174c91dbc9cc49bc7b7aab74d8b734e974d1faa8f191c74af9b7e80848e6/frozenlist-1.8.0-cp313-cp313-win_amd64.whl",
+      "sha256": "878be833caa6a3821caf85eb39c5ba92d28e85df26d57afb06b35b2efd937231"
+    },
+    {
+      "kind": "wheel",
+      "file": "idna-3.20-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl",
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+    },
+    {
+      "kind": "wheel",
+      "file": "multidict-7.2.1-cp313-cp313-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/74/6b/3f90a565e6eb94266d197d91cca5833b34ab89768a24f7f07b29bc186e09/multidict-7.2.1-cp313-cp313-win_amd64.whl",
+      "sha256": "ce0f884408938fbd72e764031d0e23a8f5e438a7bf73641089c7a6465cb84456"
+    },
+    {
+      "kind": "wheel",
+      "file": "pillow-13.0.0-cp313-cp313-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/d7/ed/1b16fb66a37e1b9e41370b93b2c614c7da761a5b2a41dc333f7af4639962/pillow-13.0.0-cp313-cp313-win_amd64.whl",
+      "sha256": "9dda0788a9932776a75d8bcc020076edc308ce2508b51f6739a45e3158b3fc42"
+    },
+    {
+      "kind": "wheel",
+      "file": "propcache-0.5.4-cp313-cp313-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/01/bc/e0a7b84af04ec02d73a48aa71f091e1e4a2107e3074b7ce12195b66901f4/propcache-0.5.4-cp313-cp313-win_amd64.whl",
+      "sha256": "0c889f6fa84957bc7e8b4eab71fd16a0455068d5045e3aa40c733071d2b2fd77"
+    },
+    {
+      "kind": "wheel",
+      "file": "qrcode-8.2-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/dd/b8/d2d6d731733f51684bbf76bf34dab3b70a9148e8f2cef2bb544fccec681a/qrcode-8.2-py3-none-any.whl",
+      "sha256": "16e64e0716c14960108e85d853062c9e8bba5ca8252c0b4d0231b9df4060ff4f"
+    },
+    {
+      "kind": "wheel",
+      "file": "websockets-15.0.1-cp313-cp313-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/1b/6c/c65773d6cab416a64d191d6ee8a8b1c68a09970ea6909d16965d26bfed1e/websockets-15.0.1-cp313-cp313-win_amd64.whl",
+      "sha256": "e09473f095a819042ecb2ab9465aee615bd9c2028e4ef7d933600a8401c79561"
+    },
+    {
+      "kind": "wheel",
+      "file": "yarl-1.25.1-cp313-cp313-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/3a/8f/4db01cef62caff0d7a4593ed694fb8a41a27a11158cab80d290221f13e57/yarl-1.25.1-cp313-cp313-win_amd64.whl",
+      "sha256": "1f51020b2eb8a003c84925638ec63c21a750a4bddd3a22ec8eac6a742dadf1b9"
+    }
+  ],
+  "payload": [
+    {
+      "path": "LICENSES/DGLAB-GPL-3.0.txt",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "LICENSES/PROJECT.txt",
+      "sha256": "9e545466d9b94dccab31f3f34a6f8a89ba9c1b28a1c0b567b4d07b50ae90ebb0"
+    },
+    {
+      "path": "LICENSES/THIRD-PARTY.txt",
+      "sha256": "807d5f460b57a581277eade368f7efa38371538c2bb30f9c0db64682b3b0d3bb"
+    },
+    {
+      "path": "resources/app/assets/app.ico",
+      "sha256": "3f9714452394715d92c17bcecefb9a3898844d7de44d914c967bb3790fed624a"
+    },
+    {
+      "path": "resources/app/main.cjs",
+      "sha256": "4c133e42c4518c9d9257c22e5b9d11a387af80dcf1948c58a4cdd62cb11baf32"
+    },
+    {
+      "path": "resources/app/package.json",
+      "sha256": "806849066428a980f6ad1c801cdfac46c03616927b2495b37767e0e5fff555dd"
+    },
+    {
+      "path": "resources/backend/app/CORE-SHA256.txt",
+      "sha256": "abdc3570a95f0b3facd740f550629497f5c11a9c8334a88320adb775638e61cd"
+    },
+    {
+      "path": "resources/backend/app/app.py",
+      "sha256": "2ebba59fd9f36d9f3bc2921ed71489345b2e4e0c7e29a3bafa02dcd29335d089"
+    },
+    {
+      "path": "resources/backend/app/core/PVZHybrid-Watcher.pmod",
+      "sha256": "63fbec2692790b23e375f13eb169f04992f4d27f1dc247e9f6204618e298ac1b"
+    },
+    {
+      "path": "resources/backend/app/core/gate.py",
+      "sha256": "abb33d3a63ee284a7cef0fbb3848bd647fcc34b35ba83d128ec7117cd31234ca"
+    },
+    {
+      "path": "resources/backend/app/core/main.py",
+      "sha256": "47ba3d358845acfdb4fabe6a6f6c5d19198520926db01b6b8998bc0ec11cbd56"
+    },
+    {
+      "path": "resources/backend/app/core/manifest.json",
+      "sha256": "ad694679ad6a7b04b13275bd558033ebf85be7605427d4cecd60437c373448ca"
+    },
+    {
+      "path": "resources/backend/app/core/mod_install.py",
+      "sha256": "59b32dad697d7b9ddadd49dbde92673b5d2a8c9b2cc94899620c28ef8bfcb4e0"
+    },
+    {
+      "path": "resources/backend/app/core/observer.py",
+      "sha256": "32c4ec6b7be35bfb514db49eccb28ab5d046a01a240e185b886fe6b701763814"
+    },
+    {
+      "path": "resources/backend/app/core/test_feedback.py",
+      "sha256": "c4b9fa37059d07a9b86a30786ae056e790881bab83a42ab18e5a96eee16b150f"
+    },
+    {
+      "path": "resources/backend/app/data/coyote.ts",
+      "sha256": "80d7a01a41d6b7b9f2c7f3cb8e4ffa6f10a68d263b32abaccdd0ca4c9bd8dc96"
+    },
+    {
+      "path": "resources/backend/app/device.py",
+      "sha256": "4f2574fb1fccc7fba4860c4bba07b3f2ebcd275202dbdc43b73a1e22b49f9e42"
+    },
+    {
+      "path": "resources/backend/app/host.py",
+      "sha256": "2f16b56b7b98cd1ebe97812e3d9c6a98354621394a6126449735686f48f52b97"
+    },
+    {
+      "path": "resources/backend/app/test_desktop.py",
+      "sha256": "c2ce06ce536da1facd0eb43c92b05df00ae5bd0a750fc830e0e8a8d1d943ecb1"
+    },
+    {
+      "path": "resources/backend/app/test_device.py",
+      "sha256": "9def537581935f6f2a558193d31db7b921167bf002b045ed9227b781f680a8e8"
+    },
+    {
+      "path": "resources/backend/app/test_e2e.py",
+      "sha256": "c0f1350b9804579f34c1ac389942d5a9f4aa327af742cce303a39dae4734b0f0"
+    },
+    {
+      "path": "resources/backend/app/test_host.py",
+      "sha256": "c37853d335da709527815383fb5a1a610178e0453c51ca1826e97e2539523b1f"
+    },
+    {
+      "path": "resources/backend/app/waves.py",
+      "sha256": "8f3580b2eceb7e952dff82c43465704071038f1ae7817dcce3c90d5a6f8e4143"
+    },
+    {
+      "path": "resources/backend/app/web/app.js",
+      "sha256": "4aca165a59bad7a07d1b201407f753ee98e2f758b069a80bb573366874d4d7e3"
+    },
+    {
+      "path": "resources/backend/app/web/index.html",
+      "sha256": "539a8ee80849336fd1d25fcaf729a2d8d814bc197ff719ae16ec4565bbefb814"
+    },
+    {
+      "path": "resources/backend/app/web/styles.css",
+      "sha256": "3fd7e91166632743298e8786f521833feb6094167202e9dd674fdbf40e043a4d"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+* text=auto
+app/** -text
+launcher/runtime.json -text
+*.exe binary
+*.ico binary
+*.pmod binary
+*.cmd text eol=crlf

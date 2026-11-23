@@ -1,0 +1,162 @@
+{
+  "id": "pvz_hybrid_feedback_v3",
+  "name": "杂交版 · 植物与僵尸受伤反馈（V3）",
+  "version": "1.0.0",
+  "sdk": "1",
+  "author": "TianXianbaobao",
+  "description": "植物与僵尸分别按实际战斗损耗触发提示和短反馈。持续节奏使用状态波形；可选按受伤类型分别提升强度并设上限。不限次数、不限时长。",
+  "entry": "main.py",
+  "capabilities": {
+    "startup_check": true
+  },
+  "config_schema": [
+    {
+      "section": "模式与输出",
+      "fields": [
+        {
+          "key": "feedback_mode",
+          "type": "select",
+          "label": "反馈模式",
+          "default": "classic",
+          "options": [
+            {
+              "label": "经典单次 · 至少间隔 5 秒",
+              "value": "classic"
+            },
+            {
+              "label": "持续节奏 · 同一目标连伤时持续输出",
+              "value": "rhythm"
+            }
+          ]
+        },
+        {
+          "key": "channel",
+          "type": "channel",
+          "label": "输出通道",
+          "default": "a",
+          "description": "A+B、A 或 B。切换通道不会试播，会结束本次已启用的反馈。"
+        },
+        {
+          "key": "preset",
+          "type": "preset",
+          "label": "反馈波形（固定预设）",
+          "default": "呼吸",
+          "description": "必须是一条固定预设（不能是随机波形）。默认用「呼吸」；若你的波形库里没有这一条，插件不会输出，请改选自己有的预设。"
+        }
+      ]
+    },
+    {
+      "section": "强度反馈",
+      "fields": [
+        {
+          "key": "strength_enable",
+          "type": "bool",
+          "label": "按受伤类型提升强度",
+          "default": false,
+          "description": "关闭时插件绝不发送强度指令，只播固定波形。打开后，下面两项分别生效。"
+        },
+        {
+          "key": "strength_plant",
+          "type": "number",
+          "label": "植物受伤 · 强度增量 %",
+          "default": 10,
+          "min": -100,
+          "max": 100,
+          "step": 1,
+          "description": "植物受到实际损耗时追加的增量。设为 0 表示植物受伤不加强度。"
+        },
+        {
+          "key": "strength_zombie",
+          "type": "number",
+          "label": "僵尸受伤 · 强度增量 %",
+          "default": 5,
+          "min": -100,
+          "max": 100,
+          "step": 1,
+          "description": "僵尸受到实际损耗时追加的增量。设为 0 表示僵尸受伤不加强度。需先勾选「僵尸受伤」。"
+        },
+        {
+          "key": "strength_mode",
+          "type": "select",
+          "label": "强度保持方式",
+          "default": "rollback",
+          "options": [
+            {
+              "label": "临时提升 · 到时自动回落",
+              "value": "rollback"
+            },
+            {
+              "label": "永久累积 · 一直叠加上去",
+              "value": "permanent"
+            }
+          ]
+        },
+        {
+          "key": "strength_cap",
+          "type": "number",
+          "label": "永久累积上限 %",
+          "default": 50,
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "description": "仅「永久累积」有效。累计提升达到该值后不再继续加；最后一次会自动补到正好封顶。设为 0 等于禁止永久累积。"
+        },
+        {
+          "key": "strength_duration",
+          "type": "duration",
+          "label": "临时提升持续秒数",
+          "default": 3.0,
+          "description": "仅「临时提升」有效。到时后自动回落到提升前的水平。"
+        }
+      ]
+    },
+    {
+      "section": "触发事件",
+      "fields": [
+        {
+          "key": "show_damage",
+          "type": "bool",
+          "label": "总开关 · 受伤提示与反馈",
+          "default": true
+        },
+        {
+          "key": "notify_life",
+          "type": "bool",
+          "label": "植物 · 生命减少",
+          "default": true
+        },
+        {
+          "key": "notify_armor",
+          "type": "bool",
+          "label": "植物 · 护甲受损",
+          "default": true
+        },
+        {
+          "key": "notify_shield",
+          "type": "bool",
+          "label": "植物 · 格盾吸收伤害",
+          "default": true
+        },
+        {
+          "key": "notify_zombie",
+          "type": "bool",
+          "label": "僵尸受伤",
+          "default": false,
+          "description": "独立于植物筛选。仅在游戏确认实际损耗时触发，与植物共用反馈间隔。"
+        }
+      ]
+    },
+    {
+      "section": "游戏 Mod",
+      "fields": [
+        {
+          "key": "auto_install_mod",
+          "type": "bool",
+          "label": "自动安装游戏端 Mod",
+          "default": true,
+          "description": "插件把自带的 .pmod 放进游戏的 Mod 目录并登记启用，用户只需重启游戏。关闭后需要手动安装。游戏正在运行时不会写入，只会提示重启。"
+        }
+      ]
+    }
+  ]
+}

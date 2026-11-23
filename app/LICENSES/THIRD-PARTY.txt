@@ -1,0 +1,9 @@
+DG-LAB 波形：data/coyote.ts 为 dglab-kit 未修改的原始数据。
+来源：https://github.com/dungeonlab-open/dglab-kit/blob/3e7ed447e387c2fa52f2c27353c27ff295b0bdeb/src/waveform/coyote.ts
+SHA-256: 80d7a01a41d6b7b9f2c7f3cb8e4ffa6f10a68d263b32abaccdd0ca4c9bd8dc96
+版权归上游作者，原许可证见 DGLAB-GPL-3.0.txt。独立版不包含 DGHub、手机 App 或游戏本体，非 DG-LAB 官方客户端。
+
+Electron / Chromium：上游官方桌面运行环境首次使用时下载，保留随包的版权与许可。
+CPython：使用官方 Windows 嵌入发行版，原始许可随运行环境保留。
+Python 依赖的版权与许可证保留在相应 wheel 的 dist-info 或 licenses 目录。
+各组件的版本、下载来源及 SHA-256 见仓库的 launcher/runtime.json。

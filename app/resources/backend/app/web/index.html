@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="no-referrer">
+  <title>杂交版 · 受伤反馈</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-mark" viewBox="0 0 48 48"><path d="M24 39V20m0 9C15 30 8 25 6 15c9-1 17 2 18 11m0 5c0-10 6-17 17-20 1 9-5 17-17 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 39h16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+    <symbol id="i-dash" viewBox="0 0 24 24"><path d="M4 13h4v6H4Zm6-7h4v13h-4Zm6 4h4v9h-4Z"/></symbol>
+    <symbol id="i-plugin" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="8" cy="7" r="2" fill="var(--icon-bg,#faf9fb)"/><circle cx="16" cy="12" r="2" fill="var(--icon-bg,#faf9fb)"/><circle cx="10" cy="17" r="2" fill="var(--icon-bg,#faf9fb)"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M3 12h3l3-6 4 12 3-6h5"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 4v5m6-5v5M6 9h12v3a6 6 0 0 1-12 0V9Zm6 9v3"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M5 6a2 2 0 0 1 2-2h11v15H7a2 2 0 1 1 0-4h11M5 6v11m4-9h5m-5 3h4"/></symbol>
+    <symbol id="i-cards" viewBox="0 0 24 24"><path d="M7 5h11a2 2 0 0 1 2 2v7M6 8h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-5l-4 2v-2H6a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2Zm2 5h6"/></symbol>
+    <symbol id="i-log" viewBox="0 0 24 24"><path d="m5 7 5 5-5 5m8 0h6"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 11v5m0-8v.15"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 5H5v3m11-3h3v3M5 16v3h3m11-3v3h-3"/></symbol>
+  </svg>
+
+  <div class="app-layout">
+    <aside class="sidebar" aria-label="主导航">
+      <a class="brand" href="#plugin" aria-label="受伤反馈工作区">
+        <span class="brand-mark"><svg aria-hidden="true"><use href="#i-mark"></use></svg></span>
+        <span><strong>受伤反馈</strong><small>杂交版工作区</small></span>
+      </a>
+      <div class="nav-section">
+        <p class="nav-caption">工作区</p>
+        <nav class="workspace-nav" aria-label="工作区">
+          <button class="nav-item nav-tile is-current" type="button" data-page="plugin" aria-current="page"><svg aria-hidden="true"><use href="#i-plugin"></use></svg><span>反馈设置</span></button>
+          <button class="nav-item nav-tile" type="button" data-page="dashboard"><svg aria-hidden="true"><use href="#i-dash"></use></svg><span>运行面板</span></button>
+          <button class="nav-item nav-tile" type="button" data-page="presets"><svg aria-hidden="true"><use href="#i-wave"></use></svg><span>波形预设</span></button>
+          <button class="nav-item nav-tile" type="button" data-page="device"><svg aria-hidden="true"><use href="#i-plug"></use></svg><span>设备连接</span></button>
+        </nav>
+      </div>
+      <div class="nav-section">
+        <p class="nav-caption">帮助与诊断</p>
+        <nav class="workspace-nav" aria-label="帮助与诊断">
+          <button class="nav-item nav-link" type="button" data-page="game"><svg aria-hidden="true"><use href="#i-layers"></use></svg><span>游戏指南</span></button>
+          <button class="nav-item nav-link" type="button" data-modal="cards"><svg aria-hidden="true"><use href="#i-cards"></use></svg><span>实时提示</span></button>
+          <button class="nav-item nav-link" type="button" data-page="logs"><svg aria-hidden="true"><use href="#i-log"></use></svg><span>运行日志</span></button>
+        </nav>
+      </div>
+      <div id="sidebar-device-status" class="sidebar-status-slot">
+        <section id="live-device-panel" class="live-device-panel" aria-labelledby="live-device-title">
+          <h2 id="live-device-title">连接状态</h2>
+          <p id="pair-state" class="muted" role="status">等待本机状态。</p>
+          <p id="pair-bound-ip" class="muted" hidden></p>
+          <p id="pair-diagnostic" class="pair-diagnostic" role="status" hidden></p>
+          <div id="device-meters" class="meters" aria-label="通道强度与上限" hidden></div>
+        </section>
+      </div>
+      <div class="side-footer">
+        <button class="device-mini" data-page="device" type="button">
+          <i id="mini-indicator" class="dot" aria-hidden="true"></i>
+          <span><span id="mini-model">郊狼 3.0</span><small id="mini-status">待获取状态</small></span>
+        </button>
+        <button class="nav-item about-button" type="button" data-modal="about"><svg aria-hidden="true"><use href="#i-info"></use></svg><span>关于</span></button>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar">
+        <div class="breadcrumbs" aria-label="当前位置"><span>工作区</span><span class="breadcrumb-separator" aria-hidden="true">/</span><strong id="page-location">反馈设置</strong></div>
+        <div class="top-actions">
+          <button class="plain count" id="active-summary" type="button" data-page="plugin">读取本机状态</button>
+          <button class="icon-btn" id="fullscreen" type="button" aria-label="切换全屏" title="切换全屏"><svg aria-hidden="true"><use href="#i-expand"></use></svg></button>
+          <button class="icon-btn quit-control" type="button" data-action="quit" aria-label="退出应用" title="退出应用" disabled>×</button>
+        </div>
+      </header>
+
+    <main class="main" id="main">
+      <div id="offline" class="alert" role="status" hidden></div>
+      <section class="page" id="page-plugin" aria-label="反馈设置">
+        <div class="page-heading">
+          <div><h1 id="plugin-title">杂交版 · 植物与僵尸受伤反馈（V3）</h1><p id="run-status">正在读取本机状态…</p></div>
+          <div class="hero-buttons"><button id="arm-output" class="primary" type="button" data-action="arm" hidden disabled>允许本次设备反馈</button><button id="toggle-plugin" class="primary" type="button" disabled>启用插件</button></div>
+        </div>
+        <div id="tabs" class="tabs" role="tablist" aria-label="反馈设置"></div>
+        <div class="plugin-body">
+          <div id="tab-content"></div>
+          <div id="inline-preview" class="inline-preview">
+            <div class="preview-heading"><div><h3>波形预览</h3><span>仅预览 · 不输出</span></div><button class="plain linked" type="button" data-page="presets">更多波形 <span aria-hidden="true">→</span></button></div>
+            <div class="graph" id="graph-inline"></div>
+          </div>
+        </div>
+        <footer class="page-footer">
+          <div class="output-rail" aria-label="设备与反馈">
+            <button class="plain output-name" type="button" data-page="device" title="管理设备"><svg aria-hidden="true"><use href="#i-plug"></use></svg><strong id="rail-model">郊狼 3.0</strong></button>
+            <span id="rail-connection">待获取设备状态</span><span id="rail-channel">—</span>
+            <div class="footer-tools"><button class="plain linked" type="button" data-modal="check">启动检查</button><button class="outline danger rail-stop" type="button" data-action="stop" disabled>停止反馈</button></div>
+          </div>
+          <span id="save-status" role="status">读取配置中…</span>
+        </footer>
+
+      </section>
+
+      <section class="page" id="page-dashboard" aria-labelledby="dashboard-title" hidden>
+        <div class="page-heading"><div><h1 id="dashboard-title">运行面板</h1><p>查看本次游戏事件与反馈状态</p></div><button class="outline danger" type="button" data-action="stop" disabled>停止反馈</button></div>
+        <p class="dashboard-state" id="dashboard-status">暂无运行状态</p>
+        <div class="stats" id="stats"></div>
+        <div class="section-line"><h2>最近提示</h2><button class="plain linked" type="button" data-modal="check">启动检查 →</button></div>
+        <div id="dashboard-cards" class="event-cards"></div>
+      </section>
+
+      <section class="page" id="page-presets" aria-labelledby="presets-title" hidden>
+        <div class="page-heading"><div><h1 id="presets-title">波形预设</h1><p>只预览曲线，不向设备发送试播指令</p></div></div>
+        <div class="secondary-grid">
+          <div><div class="preset-tools"><h2>本机预设</h2><button id="import-presets" class="outline" type="button" disabled>导入 JSON</button></div><input id="import-preset-file" type="file" accept=".json,application/json" hidden><p class="preset-hint muted">可导入本机 JSON：名称对应十六进制帧列表，不覆盖现有预设。</p><div id="preset-list" class="preset-list"></div></div>
+          <div><h2 id="preset-title">强度预览</h2><div id="graph-library" class="graph large"></div></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-device" aria-labelledby="device-title" hidden>
+        <div class="page-heading"><div><h1 id="device-title">设备连接</h1><p>先配对，再手动启用本次游戏反馈</p></div><button class="outline danger" type="button" data-action="stop" disabled>停止反馈</button></div>
+        <div id="device-status-narrow" class="device-status-narrow"></div>
+        <div class="secondary-grid device-grid">
+          <div class="surface">
+            <h2>本地配对</h2>
+            <p class="muted">让手机和电脑接入同一局域网，在郊狼 App 的二维码连接页扫码。扫码不会启动插件反馈。</p>
+            <div class="field">
+              <label for="pair-model">设备型号</label>
+              <select id="pair-model"><option value="v3">DG-LAB App 3.x · 郊狼 3.0</option><option value="v4">DG-LAB App 4.x · 郊狼 3.0</option></select>
+            </div>
+            <div class="field"><label for="pair-ip">电脑局域网地址</label><select id="pair-ip" aria-describedby="pair-ip-note"><option value="auto">自动选择</option></select><small id="pair-ip-note" class="muted"></small></div>
+            <div class="button-row">
+              <button id="pair-start" class="primary" type="button" data-action="pair" disabled>生成配对码</button>
+              <button id="pair-stop" class="outline" type="button" data-action="unpair" disabled>结束连接</button>
+            </div>
+            <p id="pair-selection-note" class="muted" role="status"></p>
+          </div>
+          <div class="surface pair-result" id="pair-result" hidden>
+            <h2 id="pair-result-title">扫描配对码</h2>
+            <img id="pair-qr" width="224" height="224" alt="本次设备配对二维码" hidden>
+            <div id="pair-check" class="pair-check" hidden><p>连接失败时，用同一局域网的手机浏览器打开以下地址：</p><code id="pair-check-url" dir="ltr"></code></div>
+            <div id="device-target" class="field" hidden><label for="device-slot">已配对 App 的设备</label><select id="device-slot"><option value="">选择目标设备</option></select></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-game" aria-labelledby="game-title" hidden>
+        <div class="page-heading"><div><h1 id="game-title">游戏指南</h1><p>植物大战僵尸杂交重制版 · 0.32.1 C# 版</p></div><button class="outline" type="button" data-modal="check">启动检查</button></div>
+        <div class="surface guide">
+          <h2>从游戏事件到反馈</h2>
+          <ol><li>确认游戏端观察器已启用。可在「反馈设置 → 游戏 Mod」管理自动安装；也可以从独立版目录把随附的 <code>PVZHybrid-Watcher.pmod</code> 导入游戏，再重启。</li>
+              <li>进入关卡，让植物或者已勾选的僵尸受到一次实际伤害。在「运行面板」查看本次收到的事件。</li>
+              <li>如需设备反馈，先配对，再从「反馈设置」手动启用。已存在的历史事件不会补播。</li></ol>
+          <div class="button-row"><button class="primary" id="open-mod-tab" type="button">查看 Mod 设置</button><button class="outline" type="button" data-page="dashboard">查看运行面板</button></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-logs" aria-labelledby="logs-title" hidden>
+        <div class="page-heading"><div><h1 id="logs-title">运行日志</h1><p>本机服务和设备连接的近期记录</p></div><button class="outline" type="button" id="copy-logs">复制日志</button></div>
+        <pre id="logs-list" class="logs" aria-label="近期运行日志">暂无运行日志。</pre>
+      </section>
+    </main>
+    </div>
+  </div>
+
+  <dialog id="modal" aria-labelledby="modal-title">
+    <header class="modal-head"><h2 id="modal-title"></h2><button class="icon-btn" type="button" id="close-modal" aria-label="关闭">×</button></header>
+    <div id="modal-body" class="modal-body"></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>
